@@ -1,4 +1,4 @@
-@extends('base');
+@extends('base')
 
 @section('content')
     <div class="border w-1/2 border-gray-500 p-10 rounded-lg h-fit">
@@ -36,7 +36,7 @@
                 <div class="flex flex-col space-y-1">
                     <label for="content" class="text-white">Content</label>
                     <textarea name="content" name="content" placeholder="Enter content" cols="30" rows="10"
-                        class="resize-none w-full p-2 focus:outline-none focus:ring-1 focus:ring-blue-500 rounded-md border border-gray-300 text-white"></textarea>
+                        class="resize-none w-full p-2 focus:outline-none focus:ring-1 focus:ring-blue-500 rounded-md border border-gray-300 text-white">{{ old('content') }}</textarea>
                 </div>
                 <button type="submit"
                     class="w-full p-2 bg-blue-500 text-white hover:bg-blue-600 cursor-pointer rounded-lg">Send</button>

@@ -1526,7 +1526,7 @@
     @endif
 </head>
 
-<body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 lg:justify-center min-h-screen">
+<body class="bg-[#000000] text-[#1b1b18] flex p-6 lg:p-8 lg:justify-center min-h-screen">
     @yield('content')
 
     @session('success')

@@ -23,7 +23,7 @@ class SendEmailController extends Controller
         $emails = EmailToSend::pluck('email');
 
         if ($emails->isEmpty()) {
-            return to_route('send-email')->with('error', 'No emails found. Please add email first.');
+            return to_route('send-email')->with('error', 'No emails found. Please add email first.')->withInput($data);
         }
 
         Mail::send(new SendEmail(

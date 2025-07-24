@@ -1,4 +1,4 @@
-@extends('base');
+@extends('base')
 
 @section('content')
     <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden w-full max-w-md mx-4 h-fit">
