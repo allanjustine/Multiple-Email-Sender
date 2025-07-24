@@ -46,8 +46,16 @@
                                                         Hello, this is from <span style="text-transform: uppercase;">{{ $from_name }}</span>!
                                                     </h1>
                                                     <p
-                                                        style="white-space: break-spaces; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
-                                                        {{ $content }}
+                                                    style="
+                                                        box-sizing: border-box;
+                                                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+                                                        font-size: 16px;
+                                                        line-height: 1.5em;
+                                                        margin-top: 0;
+                                                        text-align: left;
+                                                    "
+                                                    >
+                                                        {!! nl2br(e($content)) !!}
                                                     </p>
                                                     <br>
                                                     <br>
