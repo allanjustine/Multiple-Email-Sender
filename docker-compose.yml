@@ -10,7 +10,7 @@ services:
     volumes:
       - /home/webserver/systems/testing/Multiple-Email-Sender/.env:/var/www/.env
       - ./:/var/www
-      - ./docker-compose/nginx/default.conf:/etc/nginx/nginx.conf
+      - ./default.conf:/etc/nginx/nginx.conf
 
     networks:
       - smct-mailer
