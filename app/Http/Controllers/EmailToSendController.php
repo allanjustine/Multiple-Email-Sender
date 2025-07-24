@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EmailToSend;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class EmailToSendController extends Controller
 {
@@ -30,7 +31,7 @@ class EmailToSendController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'email'         => ['required', 'email', 'string', 'lowercase', 'max:255', 'min:5'],
+            'email'         => ['required', 'email', 'string', 'lowercase', 'max:255', 'min:5', Rule::unique('email_to_sends', 'email')],
             'name'          => ['required', 'string', 'max:255', 'min:5'],
         ]);
 
@@ -61,7 +62,7 @@ class EmailToSendController extends Controller
     public function update(Request $request, EmailToSend $email)
     {
         $data = $request->validate([
-            'email'         => ['required', 'email', 'string', 'lowercase', 'max:255', 'min:5'],
+            'email'         => ['required', 'email', 'string', 'lowercase', 'max:255', 'min:5', Rule::unique('email_to_sends', 'email')->ignore($email->id)],
             'name'          => ['required', 'string', 'max:255', 'min:5'],
         ]);
 
