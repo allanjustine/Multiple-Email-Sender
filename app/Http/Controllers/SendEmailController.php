@@ -18,9 +18,21 @@ class SendEmailController extends Controller
             'reply_to_email'    => ['required', 'email', 'string', 'lowercase', 'max:255', 'min:5'],
             'reply_to_name'     => ['required', 'string', 'max:255', 'min:5'],
             'content'           => ['required', 'string', 'min:5'],
+            'attachments.*'     => ['max:2048']
         ]);
 
         $emails = EmailToSend::pluck('email');
+
+        $attachments = $request->file('attachments');
+
+        $attachmentsData = [];
+
+        if ($attachments) {
+            foreach ($attachments as $attachment) {
+                $path = $attachment->store('attachments', 'public');
+                $attachmentsData[] = $path;
+            }
+        }
 
         if ($emails->isEmpty()) {
             return to_route('send-email')->with('error', 'No emails found. Please add email first.')->withInput($data);
@@ -33,7 +45,8 @@ class SendEmailController extends Controller
             $data['from_name'],
             $data['reply_to_email'],
             $data['reply_to_name'],
-            $emails->toArray()
+            $emails->toArray(),
+            $attachmentsData
         ));
 
         return to_route('send-email')->with('success', 'Email sent successfully');

@@ -59,16 +59,6 @@
                                                     </p>
                                                     <br>
                                                     <br>
-                                                    <table style="margin-bottom: 60px;">
-                                                        <tr>
-                                                            <td>Reply to this email:</td>
-                                                            <td>{{ $reply_to_email }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Reply to name:</td>
-                                                            <td>{{ $reply_to_name }}</td>
-                                                        </tr>
-                                                    </table>
                                                     <p
                                                         style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; text-align: left;">
                                                         Best regards, <br> {{ $from_name }} <br> {{ $from_email }}</p>

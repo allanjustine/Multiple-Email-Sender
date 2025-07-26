@@ -9,6 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Attachment;
 
 class SendEmail extends Mailable
 {
@@ -24,7 +25,8 @@ class SendEmail extends Mailable
         public $from_name,
         public $reply_to_email,
         public $reply_to_name,
-        public $send_to
+        public $send_to,
+        public $files
     ) {
         $this->content = $content;
         $this->subject = $subject;
@@ -33,6 +35,7 @@ class SendEmail extends Mailable
         $this->reply_to_email = $reply_to_email;
         $this->reply_to_name = $reply_to_name;
         $this->send_to = $send_to;
+        $this->files = $files;
     }
 
     /**
@@ -60,8 +63,6 @@ class SendEmail extends Mailable
                 'content'           => $this->content,
                 'from_email'        => $this->from_email,
                 'from_name'         => $this->from_name,
-                'reply_to_email'    => $this->reply_to_email,
-                'reply_to_name'     => $this->reply_to_name,
                 'year'              => $year
             ]
         );
@@ -74,6 +75,12 @@ class SendEmail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        $datas = [];
+
+        foreach ($this->files as $attachment) {
+            $datas[] = Attachment::fromStorageDisk('public', $attachment);
+        }
+
+        return $datas;
     }
 }
