@@ -26,14 +26,14 @@ class SendEmailController extends Controller
             return to_route('send-email')->with('error', 'No emails found. Please add email first.')->withInput($data);
         }
 
-        Mail::send(new SendEmail(
+        Mail::queue(new SendEmail(
             $data['content'],
             $data['subject'],
             $data['from_email'],
             $data['from_name'],
             $data['reply_to_email'],
             $data['reply_to_name'],
-            $emails
+            $emails->toArray()
         ));
 
         return to_route('send-email')->with('success', 'Email sent successfully');
