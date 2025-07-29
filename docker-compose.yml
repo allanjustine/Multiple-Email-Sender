@@ -35,13 +35,6 @@ services:
     networks:
       - smct-mailer
     restart: unless-stopped
-    environment:
-      DB_CONNECTION: mysql
-      DB_HOST: 172.17.0.1
-      DB_PORT: 3306
-      DB_DATABASE: smct-mailer
-      DB_USERNAME: smct
-      DB_PASSWORD: smct
 
   smct-mailer-nginx:
     image: nginx:alpine
