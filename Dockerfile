@@ -9,7 +9,13 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     curl \
-    npm
+    npm \
+    libzip-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install pdo pdo_mysql zip gd
 
 WORKDIR /var/www
 
