@@ -51,12 +51,12 @@
                             {{ $message }}
                         </small>
                     @enderror
-                    <button class="w-full bg-blue-500 hover:bg-blue-600 py-2 cursor-pointer rounded-lg text-white"
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 py-2 cursor-pointer rounded-lg text-white"
                         type="button" onclick="document.getElementById('attachments').click()">Add Attachments</button>
                     <ul id="file-list" class="mt-2 text-sm text-gray-700 space-y-2"></ul>
                 </div>
                 <button type="submit"
-                    class="w-full p-2 bg-blue-500 text-white hover:bg-blue-600 cursor-pointer rounded-lg">Send</button>
+                    class="w-full p-2 bg-blue-500 text-white hover:bg-blue-600 cursor-pointer rounded-lg">Submit</button>
             </div>
         </form>
         <script>
