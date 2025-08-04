@@ -18,7 +18,7 @@ class SendEmailController extends Controller
             'reply_to_email'    => ['required', 'email', 'string', 'lowercase', 'max:255', 'min:5'],
             'reply_to_name'     => ['required', 'string', 'max:255', 'min:5'],
             'content'           => ['required', 'string', 'min:5'],
-            'attachments.*'     => ['max:2048']
+            'attachments.*'     => ['max:20480']
         ]);
 
         $emails = EmailToSend::pluck('email');
