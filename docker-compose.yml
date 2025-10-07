@@ -30,7 +30,7 @@ services:
     working_dir: /var/www/
     depends_on:
       - smct-mailer
-    command: php artisan queue:work redis
+    command: php artisan queue:work --tries=3
     volumes:
       - /home/webserver/systems/testing/Multiple-Email-Sender/.env:/var/www/.env
       - ./:/var/www
